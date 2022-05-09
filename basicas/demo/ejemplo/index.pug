@@ -1,0 +1,86 @@
+include ../../assets/pug/_head
+include ../../assets/pug/_scripts
+
+- title = 'Promuevo la igualdad'
+- subtitle = ''
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .ex1 .inputbox.ib2{
+                justify-content: flex-start;
+            }
+            .ex1 .inputbox.ib2 input{
+                max-width: 80px;
+                margin-right: 10px;
+            }
+            .imgbgMod.soup .inputs .selectable:nth-child(1) {
+                left: 37%;
+                top: 5%;
+                width: 6.4%;
+                height: 80%;
+            }
+            .imgbgMod.soup .inputs .selectable:nth-child(2) {
+                left: 68.6%;
+                top: 5%;
+                width: 6.4%;
+                height: 92%;
+            }
+            .imgbgMod.soup .inputs .selectable:nth-child(3) {
+                left: 18%;
+                top: 50%;
+                height: 11.5%;
+                width: 63%;
+            }
+            .imgbgMod.soup .inputs .selectable:nth-child(4) {
+                left: 30.5%;
+                top: 84%;
+                height: 11.5%;
+                width: 51%;
+            }
+
+    body
+        #app.container.my-5.animate__animated.animate__fadeIn.animate__delay-1s
+            h1 #{title}
+            if subtitle.length>1
+                h2 #{subtitle}
+
+            .instruccion.mt-5 Enumera los recuadros y descubre la frase que se forma.
+
+            .row.mt-3(v-if="tempsobj.a").ex1
+                template(v-for="(i, index) in tempsobj.a")
+                    .col-md-6: .common.c3.my-2
+                        inputbox(v-model="r[index]" :ref="refCount()" @isright="right++"  type="number" placeh="#" :answer="i.v" initclass="ib2")
+                            template(v-slot:after=""): div {{i.t}}
+
+            
+            .instruccion.mt-5 Selecciona la respuesta correcta.
+            .row.mt-3
+                .col-12
+                    .text-center.my-2: numbers(c=2 smaller) ¿Qué es la equidad?
+                    selectableoptions(v-model="r[6]" :ref="refCount()" @isright="right++" answer="ok" :options="[{val:'ok', t:'Es dar a cada uno un trato justo, amable e igualitario.'},  {val:'no1', t:'El cumplimiento de las normas establecidas en el aula.'}]" customclass="col-6 text-center")
+                        template(v-slot:option="{option}")
+                            .common.c5 {{option.t}}
+
+            .instruccion.mt-5 Encuentra en la sopa de letras los valores que promueven la equidad entre niños y niñas.
+
+            .mt-3: recuadropalabras(:palabras="['respeto','igualdad','justicia','tolerancia']" c="1")
+
+            .row.mt-3
+                .col-12
+                    imgbg(img="aimg/soup.png" initclass="soup")
+                        template(v-for="(i, index) in 4")
+                            selectable(:isok="true" v-model="d['s'+index]" :ref="refCount()" @isright="right++")
+
+            finalize(@evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total")
+        +scripts
+            script.
+                app.$set(app.tempsobj, 'a', [
+                    {v: 6, t:'y la equidad.'},
+                    {v: 4, t:'por eso es necesario'},
+                    {v: 1, t:'Todos los niños y'},
+                    {v: 3, t:'igualmente importantes,'},
+                    {v: 2, t:'las niña son'},
+                    {v: 5, t:'promover el respeto'}
+                ])

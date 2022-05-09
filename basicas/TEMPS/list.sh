@@ -1,0 +1,11 @@
+#for folders in CN3T3 CN4T3 CN5T3 CN6T3 ES4T3 ES6T3 GE4T3 GE5T3 GE6T3 HI4T3 HI5T3 HI6T3 MA4T3 MA5T3 MA6T3
+#do
+#    mkdir $folders
+#done
+
+
+for value in ../FC1T3/72 ../FC1T3/73 ../FC1T3/74 ../FC1T3/75 ../FC1T3/76 ../FC1T3/78 ../FC2T3/82 ../FC2T3/83 ../FC2T3/84 ../FC2T3/85 ../FC2T3/86 ../FC3T3/93 ../FC3T3/94 ../FC3T3/95 ../FC3T3/96 ../FC3T3/97 ../FC3T3/98 ../FC4T3/14 ../FC4T3/15 ../FC4T3/16 ../FC4T3/17 ../FC4T3/18 ../FC4T3/20 ../FC4T3/22 ../FC5T3/10 ../FC5T3/13 ../FC6T3/14 ../FC6T3/15 ../FC6T3/16 ../FC6T3/17 ../FC6T3/18
+do
+    echo $value
+    cp -R tempPug/ $value
+done

@@ -1,0 +1,122 @@
+
+<!--+parrafoinputs(['La mayoría de los liberales eran', ['civiles', 0],])--><!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Promuevo la igualdad</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
+    <link rel="stylesheet" href="../../assets/assets.css"/>
+    <style>
+      .ex1 .inputbox.ib2{
+          justify-content: flex-start;
+      }
+      .ex1 .inputbox.ib2 input{
+          max-width: 80px;
+          margin-right: 10px;
+      }
+      .imgbgMod.soup .inputs .selectable:nth-child(1) {
+          left: 37%;
+          top: 5%;
+          width: 6.4%;
+          height: 80%;
+      }
+      .imgbgMod.soup .inputs .selectable:nth-child(2) {
+          left: 68.6%;
+          top: 5%;
+          width: 6.4%;
+          height: 92%;
+      }
+      .imgbgMod.soup .inputs .selectable:nth-child(3) {
+          left: 18%;
+          top: 50%;
+          height: 11.5%;
+          width: 63%;
+      }
+      .imgbgMod.soup .inputs .selectable:nth-child(4) {
+          left: 30.5%;
+          top: 84%;
+          height: 11.5%;
+          width: 51%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container my-5 animate__animated animate__fadeIn animate__delay-1s" id="app">
+      <h1>Promuevo la igualdad</h1>
+      <div class="instruccion mt-5">Enumera los recuadros y descubre la frase que se forma.</div>
+      <div class="row mt-3 ex1" v-if="tempsobj.a">
+        <template v-for="(i, index) in tempsobj.a">
+          <div class="col-md-6">
+            <div class="common c3 my-2">
+              <inputbox v-model="r[index]" :ref="refCount()" @isright="right++" type="number" placeh="#" :answer="i.v" initclass="ib2">
+                <template v-slot:after="">
+                  <div>{{i.t}}</div>
+                </template>
+              </inputbox>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="instruccion mt-5">Selecciona la respuesta correcta.</div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="text-center my-2">
+            <numbers c="2" smaller="smaller">¿Qué es la equidad?</numbers>
+          </div>
+          <selectableoptions v-model="r[6]" :ref="refCount()" @isright="right++" answer="ok" :options="[{val:'ok', t:'Es dar a cada uno un trato justo, amable e igualitario.'},  {val:'no1', t:'El cumplimiento de las normas establecidas en el aula.'}]" customclass="col-6 text-center">
+            <template v-slot:option="{option}">
+              <div class="common c5">{{option.t}}</div>
+            </template>
+          </selectableoptions>
+        </div>
+      </div>
+      <div class="instruccion mt-5">Encuentra en la sopa de letras los valores que promueven la equidad entre niños y niñas.</div>
+      <div class="mt-3">
+        <recuadropalabras :palabras="['respeto','igualdad','justicia','tolerancia']" c="1"></recuadropalabras>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <imgbg img="aimg/soup.png" initclass="soup">
+            <template v-for="(i, index) in 4">
+              <selectable :isok="true" v-model="d['s'+index]" :ref="refCount()" @isright="right++"></selectable>
+            </template>
+          </imgbg>
+        </div>
+      </div>
+      <finalize @evaluate="finalizar" @reset="reset" :resultado="resultado" :right="right" :total="total"></finalize>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.js"></script>
+    <script src="../../assets/modulos/dragdropMod.js"></script>
+    <script src="../../assets/modulos/dropdowns.js"></script>
+    <script src="../../assets/modulos/selectable.js"></script>
+    <script src="../../assets/modulos/selectableoptions.js"></script>
+    <script src="../../assets/modulos/check.js"></script>
+    <script src="../../assets/modulos/inputbox.js"></script>
+    <script src="../../assets/modulos/choose.js"></script>
+    <script src="../../assets/modulos/tip.js"></script>
+    <script src="../../assets/modulos/relational.js"></script>
+    <script src="../../assets/modulos/finalize.js"></script>
+    <script src="../../assets/modulos/utils.js"></script>
+    <script src="../../assets/assets.js"></script>
+    <script>
+      app.$set(app.tempsobj, 'a', [
+          {v: 6, t:'y la equidad.'},
+          {v: 4, t:'por eso es necesario'},
+          {v: 1, t:'Todos los niños y'},
+          {v: 3, t:'igualmente importantes,'},
+          {v: 2, t:'las niña son'},
+          {v: 5, t:'promover el respeto'}
+      ])
+    </script>
+  </body>
+</html>
