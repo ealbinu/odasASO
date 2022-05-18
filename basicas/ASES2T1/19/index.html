@@ -1,0 +1,94 @@
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>El nombre de mis amigos</title>
+   </head>
+   <body>
+      <div class="container mx-auto my-5" id="app">
+            
+          <oda-titulo title="El nombre de mis amigos" subtitle=""></oda-titulo>
+          
+          <oda-instruccion>Selecciona los globos que tienen las letras que se necesitan para escribir el nombre de cada personaje.</oda-instruccion>
+          
+          <layout-grid columns="2">
+              
+              <layout-box class="relative max-w-[90%] bg-pastel2">
+                  <div class="absolute w-[24%] h-[20%] top-[2%] left-[3%]">
+                      <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[30%] left-[71%] ">
+                  <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[26%] left-[17%] ">
+                  
+                  
+                      <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[63%] left-[73%] ">
+                  
+                      <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[6%] left-[40%] ">
+                  
+                  <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[4%] left-[70%] ">
+                  
+                      <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[45%] left-[44%] ">
+                  
+                      <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[74%] left-[48%] ">
+                      <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                      <img src="01.png">
+                  
+              </layout-box>
+              
+              <layout-box class="relative  max-w-[90%]">
+                  <div class="absolute w-[24%] h-[20%] top-[5%] left-[3%] ">
+                      <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[33%] left-[71%] ">
+                  <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[27%] left-[17%] ">
+                      <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[66%] left-[73%] ">
+                  
+                      <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[8%] left-[40%] ">
+                  
+                  <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[6%] left-[70%] ">
+                  
+                      <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[47%] left-[44%] ">
+                  
+                      <module-select :answer="true" class="h-full w-full"></module-select>
+                  </div>
+                  <div class="absolute w-[24%] h-[20%] top-[76%] left-[48%] ">
+                      <module-select :answer="false" class="h-full w-full"></module-select>
+                  </div>
+                  <img src="02.png">
+              </layout-box>
+
+          </layout-grid>
+          
+          
+            
+          <oda-finalizar></oda-finalizar>
+          
+        
+          
+      </div>
+      <script src="https://cdn.jsdelivr.net/gh/bluemx/blueodasv2@v1.0.2/basicas/assets/loader.js"></script>
+   </body>
+</html>
