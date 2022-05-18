@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>¿Para qué comunicarnos?</title>
+   </head>
+   <body>
+      <div class="container mx-auto my-5" id="app">
+            
+          <oda-titulo title="¿Para qué comunicarnos?" subtitle=""></oda-titulo>
+          
+          <oda-instruccion>Observa las imágenes y arrastra al espacio en blanco aquella que completa la historia correctamente. Después platica sobre lo que pasó.</oda-instruccion>
+          
+          <layout-grid columns="2" class="bg-gray-100 py-5 mb-5">
+              <module-drag dropzone="d1" answer="" class="max-w-[16rem] mx-auto"><img src="02.png"></module-drag>
+              <module-drag dropzone="d1" answer="ok"  class="max-w-[16rem] mx-auto"><img src="03.png"></module-drag>
+          </layout-grid>
+          
+          <layout-box class="relative">
+              <module-drop name="d1" answer="ok" class="!absolute left-[45%] top-[0%] w-[32%] h-[39%]"></module-drop>
+            <img src="01.png">
+          </layout-box>
+          
+            
+          <oda-finalizar></oda-finalizar>
+          
+        
+          
+      </div>
+      <script src="https://cdn.jsdelivr.net/gh/bluemx/blueodasv2@v1.0.2/basicas/assets/loader.js"></script>
+   </body>
+</html>
