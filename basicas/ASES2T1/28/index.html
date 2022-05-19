@@ -1,0 +1,117 @@
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>¿Cómo ayudas en casa?</title>
+   </head>
+   <body>
+      <div class="container mx-auto my-5" id="app">
+            
+          <oda-titulo title="¿Cómo ayudas en casa?" subtitle=""></oda-titulo>
+          
+          
+          
+          <oda-instruccion>Completa las oraciones arrastrando la imagen correspondiente a cada uno de los espacios.</oda-instruccion>
+          
+          <layout-grid columns="2" columns-md="6">
+              <module-drag dropzone='drop1' answer="a">
+                  <img src="i/02.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/03.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="a">
+                  <img src="i/04.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="a">
+                  <img src="i/05.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/06.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/07.png">
+              </module-drag>
+          </layout-grid>
+          
+          <layout-grid columns="3" class="mt-5">
+              <layout-box class="bg-pastel6 flex-col" design>
+                <module-drop name="drop1" answer="a" design class="w-32 h-32"></module-drop> 
+                  <util-text color="4" size="4xl" class="my-2">limpia la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+              
+              <layout-box class="bg-pastel6 flex-col" design>
+                <module-drop name="drop1" answer="a" design class="w-32 h-32"></module-drop> 
+                  <util-text color="4" size="4xl" class="my-2">limpia la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+              
+              <layout-box class="bg-pastel6 flex-col" design>
+                <module-drop name="drop1" answer="a" design class="w-32 h-32"></module-drop> 
+                  <util-text color="4" size="4xl" class="my-2">limpia la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+            
+          </layout-grid>
+          
+          <oda-instruccion>Selecciona las cosas que tienen el sonido "a" en su nombre haciendo clic sobre ellas. </oda-instruccion>
+          
+          <layout-grid columns="1">
+              
+              <layout-box class="relative max-w-[90%] mx-auto">
+                  
+                  <div class="absolute w-[23%] h-[26%] top-[11%] left-[8%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[23%] h-[14%] top-[12%] left-[37%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[33%] h-[16%] top-[6%] left-[63%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[33%] h-[16%] top-[30%] left-[36%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[16%] h-[18%] top-[37%] left-[73%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[26%] h-[8%] top-[54%] left-[40%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[22%] h-[26%] top-[46%] left-[4%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[22%] h-[12%] top-[75%] left-[11%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  <div class="absolute w-[55%] h-[22%] top-[70%] left-[40%]">
+                    <module-select :answer="true" class="h-full w-full" ></module-select>
+                  </div>
+                  
+                  
+                  <img src="i/01.png" class="w-full">
+                  
+              </layout-box>
+              
+       
+          </layout-grid>
+          
+          
+            
+          <oda-finalizar></oda-finalizar>
+          
+        
+          
+      </div>
+      <script src="https://cdn.jsdelivr.net/gh/bluemx/blueodasv2/basicas/assets/loader.min.js"></script>
+   </body>
+</html>
