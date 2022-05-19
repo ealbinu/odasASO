@@ -1,0 +1,97 @@
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>¿Quién usa la toalla?</title>
+   </head>
+   <body>
+      <div class="container mx-auto my-5" id="app">
+            
+          <oda-titulo title="¿Quién usa la toalla?" subtitle=""></oda-titulo>
+          
+          
+          
+          <oda-instruccion>Arrastra la imagen correcta para completar las oraciones.</oda-instruccion>
+          
+          <layout-grid columns="5">
+              <module-drag dropzone='drop1' answer="a">
+                  <img src="i/02.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/03.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/04.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/05.png">
+              </module-drag>
+              <module-drag dropzone='drop1' answer="b">
+                  <img src="i/06.png">
+              </module-drag>
+          </layout-grid>
+          
+          <layout-grid columns="3" class="mt-5">
+              <layout-box class="bg-pastel2 flex-col" design>
+                <module-drop name="drop1" answer="a" design class="w-32 h-32"></module-drop> 
+                  <util-text color="3" size="4xl" class="my-2">usa la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+              
+              <layout-box class="bg-pastel2 flex-col" design>
+                    <img src="i/07.png" class="w-32 rounded-xl">
+                  <util-text color="3" size="4xl" class="my-2">usa la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+              
+              <layout-box class="bg-pastel2 flex-col" design>
+                <module-drop name="drop1" answer="a" design class="w-32 h-32"></module-drop> 
+                  <util-text color="3" size="4xl" class="my-2">usa la</util-text>
+                <module-drop name="drop1" answer="b" design class="w-32 h-32"></module-drop> 
+              </layout-box>
+            
+          </layout-grid>
+          
+          <oda-instruccion>Selecciona las cosas que tienen el sonido "o" en su nombre.</oda-instruccion>
+          
+          <layout-grid columns="3">
+              <module-select :answer="true">
+                <img src="i/ej2/1.png" class="h-20">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/2.png" class="h-32">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/3.png" class="h-32">
+              </module-select>
+              <module-select :answer="false">
+                <img src="i/ej2/4.png" class="h-32">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/5.png" class="h-32">
+              </module-select>
+              <module-select :answer="false">
+                <img src="i/ej2/6.png" class="h-16">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/7.png" class="h-24">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/8.png" class="h-24">
+              </module-select>
+              <module-select :answer="true">
+                <img src="i/ej2/9.png" class="h-24">
+              </module-select>
+       
+          </layout-grid>
+          
+          
+            
+          <oda-finalizar></oda-finalizar>
+          
+        
+          
+      </div>
+      <script src="https://cdn.jsdelivr.net/gh/bluemx/blueodasv2/basicas/assets/loader.min.js"></script>
+   </body>
+</html>
