@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
+    <link rel="stylesheet" href="../../assets/assets.css"/>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
+    <style>
+      .drag{
+        width: 140px;
+        height: 140px;
+      }
+      .imagen{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+      }
+      .drop{
+        width: 120px;
+        height: 130px;
+        /*border: 4px dashed #fff;*/
+      }
+      .uno{
+        position: absolute;
+        margin-top: -70px;
+        margin-left: 55px;
+        width: 140px;
+        height: 147px;
+      }
+      .dos{
+        position: absolute;
+        width: 240px;
+        height: 320px;
+        margin-left: 510px;
+        margin-top: 22px;
+      }
+      .tres{
+        position: absolute;
+        margin-top: 348px;
+        margin-left: 91px;
+        width: 137px;
+        height: 151px;
+      }
+      .cuatro{
+        margin-top: 145px;
+        margin-left: -209px;
+        width: 135px;
+        height: 150px;
+      }
+      .dropzoneused .numero-oculto{
+        display: none;
+      }
+      .activity{
+        background-image: url('i/15.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: 130px;
+        justify-content: flex-start;
+      }
+      .drag img{
+        max-width: 60px;
+      }
+      .uno .animate__flash img{
+        width: 24px;
+        margin-top: 0px;
+        margin-left: 2px;
+      }
+      .dos .animate__flash img{
+        margin-top: -86px;
+        position: absolute;
+        margin-left: -65px;
+        width: 26px;
+      }
+      .tres .animate__flash img{
+        margin-top: 0px;
+        width: 29px;
+        margin-left: 4px;
+      }
+      .cuatro .animate__flash img{
+        width: 26px;
+        margin-top: 0px;
+        margin-left: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- START-->
+      <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="4" scene-color="#ED1C25">
+        <info type="dragdrop" title="Me lavo las manos." text="Lavarnos las manitas nos protege de los bichitos que están en las cosas que tocamos, por eso es muy importante hacerlo de manera correcta. ¿Cómo deben lavarse las manos? Ordena las imágenes." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity>
+
+          <div class="row w100">
+            
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/17.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/16.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/19.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            
+          </div>
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d4">
+              <div class="numero-oculto"></div>
+            </div>
+            <div class="drop w100 h50 row drop1 tres" droptimes="untilok" data="d3"></div>
+            <div class="drop w100 h50 row drop1 dos" droptimes="untilok" data="d2"></div>
+            <div class="drop w100 h50 row drop1 uno" droptimes="untilok" data="d1"></div>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+
+
+
+      <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
+    </div>
+    <!-- CDNS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/Draggable.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+    <!-- Fireworks-->
+    <script src="../../assets/modulos/fworks.js"></script>
+    <!-- Modulos-->
+    <script src="../../assets/modulos/sequence.js"></script>
+    <script src="../../assets/modulos/videoplayer.js"></script>
+    <script src="../../assets/modulos/popup.js"></script>
+    <script src="../../assets/modulos/number.js"></script>
+    <script src="../../assets/modulos/inputable.js"></script>
+    <script src="../../assets/modulos/embedsvg.js"></script>
+    <script src="../../assets/modulos/tooltiper.js"></script>
+    <script src="../../assets/modulos/dialogaudio.js"></script>
+    <script src="../../assets/modulos/selectives.js"></script>
+    <script src="../../assets/modulos/clickable.js"></script>
+    <script src="../../assets/modulos/drag.js"></script>
+    <script src="../../assets/modulos/audiotext.js"></script>
+    <script src="../../assets/modulos/desplegar.js"></script>
+    <script src="../../assets/modulos/scorebox.js"></script>
+    <script src="../../assets/modulos/scene.js"></script>
+    <script src="../../assets/modulos/info.js"></script>
+    <script src="../../assets/modulos/activity.js"></script>
+    <!-- Mainscript-->
+    <script src="../../assets/assets.js"></script>
+    <script>
+      app.$devmode = false
+      app.$set(app.temps, 'a', [])
+      
+      app.currentScene = 0
+      app.scenesCount = 1
+    </script>
+  </body>
+</html>
